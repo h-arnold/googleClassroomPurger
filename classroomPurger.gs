@@ -2,8 +2,8 @@ function onOpen() {
   const ui = SpreadsheetApp.getUi();
   ui.createMenu('Classroom Purger')
     .addItem('List Google Classrooms', 'listGoogleClassrooms')
-    .addItem('Dry Run Actions', 'dryRunMenu')
-    .addItem('Actually Run Actions or Delete', 'actuallyMenu')
+    .addItem('Dry Run Actions', 'dryRunDelete')
+    .addItem('Actually Run Actions or Delete', 'actuallyDelete')
     .addToUi();
 }
 
@@ -90,7 +90,6 @@ function archiveClassrooms() {
       }
     }
   }
-  listGoogleClassrooms()
 }
 
 
@@ -172,5 +171,6 @@ function dryRunDelete() {
 }
 
 function actuallyDelete() {
+  archiveClassrooms()
   deleteClassrooms(false);
 }
